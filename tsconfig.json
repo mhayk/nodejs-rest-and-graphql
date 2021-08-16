@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": [
+        "modules/*"
+      ],
+      "@models/*": [
+        "models/*"
+      ]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  }
+}
