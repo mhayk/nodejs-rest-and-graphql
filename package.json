@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-rest-and-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mhayk/nodejs-rest-and-graphql.git",
+  "author": "Mhayk Whandson <hi@mhayk.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev respawn --watch 'src/**' --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "graphql-tools": "^8.1.0",
+    "mongoose": "^5.13.7",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  }
+}
