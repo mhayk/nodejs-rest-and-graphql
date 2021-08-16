@@ -6,7 +6,7 @@
   "author": "Mhayk Whandson <hi@mhayk.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev respawn --watch 'src/**' --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts"
+    "dev": "ts-node-dev --respawn --watch 'src/**' --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
     "express": "^4.17.1",
