@@ -8,15 +8,19 @@ import { makeExecutableSchema } from "@graphql-tools/schema"
 
 import resolvers from "./resolvers"
 import typeDefs from './schemas'
-
-const app = express()
-
-app.use(express.json())
+import { routes } from "routes"
 
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.b1l8g.mongodb.net/restgraphql?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
+const app = express()
+
+app.use(express.json())
+
+app.use(routes)
+
 
 const schema = makeExecutableSchema({
     resolvers,
