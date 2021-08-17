@@ -2,12 +2,13 @@ import "reflect-metadata"
 import express, { NextFunction, Request, Response } from "express"
 import "express-async-errors"
 import mongoose from 'mongoose'
+import "./config/env"
 
 const app = express()
 
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017/restgraphql', {
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.b1l8g.mongodb.net/restgraphql?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
