@@ -3,6 +3,11 @@ import express, { NextFunction, Request, Response } from "express"
 import "express-async-errors"
 import mongoose from 'mongoose'
 import "./config/env"
+import { graphqlHTTP } from 'express-graphql'
+import { makeExecutableSchema } from "@graphql-tools/schema"
+
+import resolvers from "./resolvers"
+import typeDefs from './schemas'
 
 const app = express()
 
@@ -12,6 +17,17 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MO
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
+const schema = makeExecutableSchema({
+    resolvers,
+    typeDefs
+})
+
+app.use("/graphql", graphqlHTTP({
+    schema,
+    // to enable graphql IDE
+    graphiql: true,
+}))
 
 app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {
